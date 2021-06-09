@@ -1,0 +1,19 @@
+<div class="outer-container">
+    <div class="container">
+        <h1 class="main-heading">Gutenberg Project</h1>
+        <p class="para">A social cataloging website that allows you to freely search its database of books, <br class="sm-br" />annotations,
+            <br class="lg-br" />and reviews.</p>
+        <div class="row">
+            <div class="col-sm-6" *ngFor="let genre of genreArray">
+                <a href="javascript:void(0)"
+                   (click)="getBooks(genre.value)">
+                    <div class="genre-card">
+                        <img class="genre-image" src='assets/images/{{genre.label}}.svg' alt='{{genre.label}}' />
+                        {{genre.label | uppercase}}
+                        <img class="genre-image genre-next" src='assets/images/Next.svg' alt='next' />
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

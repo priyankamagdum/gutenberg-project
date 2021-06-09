@@ -1,0 +1,120 @@
+@import '/src/styles/_variables.scss';
+.padding-zero {
+    padding-bottom: 10px;
+}
+
+.outer-container {
+    height: 800px;
+    overflow-y: scroll;
+}
+
+.genre-heading {
+    font-family: $heading-font-family;
+    font-size: $sub-heading-font-size;
+    color: $primary;
+    font-weight: 600;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+
+/* Search box styles */
+
+input[type="text"] {
+    border: none;
+    background-color: $grey;
+    border-radius: 4px;
+    padding: 10px;
+    height: 40px;
+    text-indent: 25px;
+    caret-color: $primary;
+    color: $grey-dark;
+    font-family: $body-font-family;
+    font-size: $body-font-size;
+    width: 95.5%;
+}
+
+input[type="text"]:focus {
+    border: 1px solid $primary;
+    box-shadow: none;
+}
+
+.form-control-feedback {
+    position: absolute;
+    margin: 12px 13px 13px 10px;
+    cursor: pointer;
+}
+
+.form-control-cancel {
+    position: absolute;
+    right: 373px;
+    top: 119px;
+    cursor: pointer;
+}
+
+
+/* Book Card */
+
+.book-card {
+    font-family: $body-font-family;
+    border-radius: 8px;
+    width: 114px;
+    height: 162px;
+    box-shadow: 0 2px 5px 0 rgba(211, 209, 238, .5);
+}
+
+.loading-text {
+    text-align: center;
+}
+
+.card-body {
+    width: 114px;
+    padding: 5px 0 1rem;
+    .book {
+        font-family: $body-font-family;
+        font-size: $book-name-font-size;
+        color: $grey-dark;
+    }
+    h5.book {
+        margin-bottom: 5px;
+    }
+    .author {
+        color: $grey-medium;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 599px) {
+    .form-control-cancel {
+        right: 23px;
+    }
+    .col-sm-2 {
+        width: auto;
+    }
+    .row {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+    .form-control-cancel {
+        right: 76px;
+    }
+    .col-sm-2 {
+        width: auto;
+    }
+    .row {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .form-control-cancel {
+        right: 104px;
+    }
+    .col-sm-2 {
+        width: auto;
+    }
+    .row {
+        justify-content: center;
+    }
+}

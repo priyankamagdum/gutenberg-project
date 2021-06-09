@@ -1,0 +1,53 @@
+@import '/src/styles/_variables.scss';
+
+.main-heading {
+    font-family: $heading-font-family;
+    font-size: $heading-font-size;
+    color: $primary;
+    font-weight: 600;
+}
+.para {
+    font-family: $body-font-family;
+    font-size: $body-font-size;
+    color: $grey-dark;
+    font-weight: 400;
+}
+.genre-card {
+    font-family: $body-font-family;
+    font-size: $card-font-size;
+    border-radius: 4px;
+    height: 50px;
+    padding: 10px;
+    box-shadow: 0 2px 5px 0 rgba(211, 209, 238, 0.5);
+    background-color: $white;
+    margin-top: 15px;
+    .genre-image {
+        width: 32px;
+        height: 32px;
+    }
+    .genre-next {
+        float: right;
+    }
+}
+.sm-br {
+    display: none;
+}
+@media (min-width: 320px) and (max-width: 599px) {
+    .sm-br {
+        display: block;
+    }
+    .lg-br {
+        display: none;
+    }
+    .para {
+        font-size: $book-name-font-size;
+    }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+    .sm-br {
+        display: block;
+    }
+    .lg-br {
+        display: none;
+    }
+}

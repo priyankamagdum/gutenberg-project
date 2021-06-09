@@ -1,0 +1,38 @@
+<!-- Genre and search box structure-->
+<div class="container padding-zero">
+    <a href="javascript:void(0)" (click)="backtoHome()">
+        <img src='assets/images/Back.svg' alt='back' />
+        <span class="genre-heading">{{genre | titlecase}}</span>
+    </a>
+    <div class="form-group">
+        <img class="form-control-feedback" src='assets/images/Search.svg' alt='search' (click)="onEnter(inputValue)" />
+        <input type="text" class="form-control" placeholder="{{placeholder}}" (keyup.enter)="onEnter(inputValue)" value="{{inputValue}}" (focus)="onFocus()" (keyup)="onKeyUp($event)" />
+        <img *ngIf="inputValue" class="form-control-cancel" src='assets/images/Cancel.svg' alt='cancel' (click)="clearField()" />
+    </div>
+</div>
+<!-- Structure of book to be displayed -->
+<div class="outer-container">
+    <!--Loading and error message to be displayed-->
+    <ng-container *ngIf="isLoading">
+        <h2 class="loading-text">Loading...</h2>
+    </ng-container>
+    <ng-container *ngIf="!isLoading && isError">
+        <h2 class="loading-text" style="color: red">{{errorMessage}}</h2>
+    </ng-container>
+    <ng-container *ngIf="!isLoading && bookModel.length == 0">
+        <h2 class="loading-text">No results found</h2>
+    </ng-container>
+    <!--Book list to be displayed with scroll implementation-->
+    <div class="container search-results" *ngIf="bookModel.length != 0 && !isLoading" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollUpDistance]="1.5" [infiniteScrollThrottle]="50" [infiniteScrollContainer]="'.outer-container'" [fromRoot]="true"
+        (scrolled)="onScrollDown()" (scrolledUp)="onScrollUp()">
+        <div class="row">
+            <div class="col-sm-2" *ngFor="let book of bookModel">
+                <a href="javascript:void(0)" (click)="goToImage(book.imagePath)"><img src="{{book.imageName}}" class="book-card" /></a>
+                <div class="card-body">
+                    <h5 class="card-title book">{{book.title | uppercase}}</h5>
+                    <p class="card-text book author">{{book.author | titlecase}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
