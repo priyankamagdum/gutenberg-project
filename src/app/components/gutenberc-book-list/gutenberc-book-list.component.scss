@@ -55,6 +55,12 @@ input[type="text"]:focus {
 
 /* Book Card */
 
+.textEllipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .book-card {
     font-family: $body-font-family;
     border-radius: 8px;

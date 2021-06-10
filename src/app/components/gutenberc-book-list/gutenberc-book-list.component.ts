@@ -42,7 +42,7 @@ export class GutenbercBookListComponent implements OnInit {
           this.authorName = this.getAuthors(authors);
           let formats = data['formats'];
           this.imageName = formats['image/jpeg'];
-          this.imagePath = this.getFormats(formats);
+          this.getFormats(formats);
           this.bookModel.push({title: data['title'], author: this.authorName, imageName: this.imageName,
             imagePath: this.imagePath})
         })
@@ -66,7 +66,7 @@ export class GutenbercBookListComponent implements OnInit {
           this.authorName = this.getAuthors(authors);
           let formats = data['formats'];
           this.imageName = formats['image/jpeg'];
-          this.imagePath = this.getFormats(formats);
+          this.getFormats(formats);
           this.bookModel.push({title: data['title'], author: this.authorName, imageName: this.imageName,
             imagePath: this.imagePath})
         })
@@ -97,27 +97,20 @@ export class GutenbercBookListComponent implements OnInit {
 
   /** Method called to get formats of book */
   public getFormats(formats: any) {
-    switch (formats) {
-      case formats['text/html; charset=utf-8']:
-        this.imagePath = formats['text/html; charset=utf-8'];
-        break;
-      case formats['text/html; charset=iso-8859-1']:
-        this.imagePath = formats['text/html; charset=iso-8859-1'];
-        break;
-      case formats['application/pdf']:
-        this.imagePath = formats['application/pdf'];
-        break;
-      case formats['text/plain; charset=utf-8']:
-        this.imagePath = formats['text/plain; charset=utf-8'];
-        break;
-      case formats['text/plain; charset=iso-8859-1']:
-        this.imagePath = formats['text/html; charset=iso-8859-1'];
-        break;
-      default:
+    if (formats['text/html; charset=utf-8']) {
+      this.imagePath = formats['text/html; charset=utf-8'];
+    } else if (formats['text/html; charset=iso-8859-1']) {
+      this.imagePath = formats['text/html; charset=iso-8859-1'];
+    } else if (formats['application/pdf']) {
+      this.imagePath = formats['application/pdf'];
+    } else if (formats['text/plain; charset=utf-8']) {
+      this.imagePath = formats['text/plain; charset=utf-8'];
+    } else if (formats['text/plain; charset=iso-8859-1']) {
+      this.imagePath = formats['text/plain; charset=iso-8859-1'];
+    } else {
         this.imagePath = '';
-
     }
-    return this.imagePath
+    return this.imagePath;
   }
 
   /** Method to call book list of selected genre/category */
@@ -162,7 +155,7 @@ export class GutenbercBookListComponent implements OnInit {
           this.authorName = this.getAuthors(authors);
           let formats = data['formats'];
           this.imageName = formats['image/jpeg'];
-          this.imagePath = this.getFormats(formats);
+          this.getFormats(formats);
           this.bookModel.push({title: data['title'], author: this.authorName, imageName: this.imageName,
             imagePath: this.imagePath})
         })
