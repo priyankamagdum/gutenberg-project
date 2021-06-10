@@ -19,7 +19,7 @@
     <ng-container *ngIf="!isLoading && isError">
         <h2 class="loading-text" style="color: red">{{errorMessage}}</h2>
     </ng-container>
-    <ng-container *ngIf="!isLoading && bookModel.length == 0 && errorMessage == '">
+    <ng-container *ngIf="!isLoading && bookModel.length == 0 && errorMessage == ''">
         <h2 class="loading-text">No results found</h2>
     </ng-container>
     <!--Book list to be displayed with scroll implementation-->
